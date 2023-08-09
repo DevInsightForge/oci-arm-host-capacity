@@ -21,5 +21,8 @@ RUN composer install
 # Copy your application files into the container (if needed)
 COPY . /app
 
-# Define the command to run when the container starts (if needed)
-CMD ["php", "./index.php"]
+# Copy the startup script into the container
+RUN chmod +x /app/start.sh
+
+# Start the startup script
+CMD ["/app/start.sh"]
