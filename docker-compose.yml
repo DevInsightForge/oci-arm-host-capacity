@@ -1,0 +1,15 @@
+version: '3'
+services:
+  php-app:
+    container_name: oci-arm-instance-gen
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - ./env:/app/.env:ro
+
+    environment:
+      - COMPOSER_HOME=/composer
+
+    working_dir: /app
